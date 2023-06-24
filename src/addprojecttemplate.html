@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Project</title>
+</head>
+<body>
+    <div class="container">
+        <div class="control-panel">
+            <a href="../dist/index.html">Main Page</a>
+            <a href="../dist/addproject.html">Add a project!</a>
+            <button type="button" id = "resetter">Reset Local Storage</button>
+        </div>
+        <div class="form-container">
+            <form id = "addprojectform">
+                <div class="form-input">
+                    <label for="project-name">Name of Project?</label>
+                    <input id = "project-name" type="text" name = "project-name" autocomplete="off" autofocus>
+                </div>
+                <div class="form-input">
+                    <label for="project-date">Due date of your project</label>
+                    <input id="project-date" name="project-date" type="date">
+                </div>
+                <div class="form-input">
+                    <label for="urgent">Urgent</label>
+                    <input type="radio" id="urgent" name="priority" value="urgent">
+                    <label for="non-urgent">Non-urgent</label>
+                    <input type="radio" id="non-urgent" name="priority" value="non-urgent">
+                </div>
+                <div class="form-input">
+                    <label for="project-description">Project Description?</label>
+                    <textarea id="project-description" name="project-description" name="project-description" cols="30" rows="10"></textarea>
+                </div>
+                <button type="submit" id="form-submit">Add Project</button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
