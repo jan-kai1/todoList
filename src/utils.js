@@ -1,19 +1,14 @@
 import { compareAsc, compareDesc, addDays,subDays } from "date-fns" 
 import "./style.css"
-export { createProject,indexInit,createProjectElement,addResetButton }
-
+export { messageReceiver,createProject,indexInit,createProjectElement,addResetButton,setProjectList,getProjectList }
+import { getProjectList,setProjectList } from "./storageutils"
 function indexInit()
 {
-    let projectList =JSON.parse(localStorage.getItem("projectList"))|| [];
-    if (!projectList || projectList.length == 0)
+    let projectList = getProjectList()
+    if (projectList == null)
     {
-        if (!projectList)
-        {
-            console.log("no list")
-            projectList = []
-        }
         
-
+        projectList = []
         const cleanRoom = createProject("clean room","2023-7-1","non-urgent","clean my damn room");
         const checkEmail = createProject("check email", "2023-6-20","urgent","check all emails");
         const testProject = createProject("test", "23-4-2222", "urgent", "LOLOLOL")
@@ -31,8 +26,10 @@ function indexInit()
         projectList.push(checkEmail.plainProject());
         projectList.push(cleanRoom.plainProject());
         console.log(projectList)
-        localStorage.setItem("projectList",JSON.stringify(projectList));
     }
+        
+
+    
     else
     {
         console.log("List Found");
@@ -139,4 +136,10 @@ function addResetButton()
         }
         console.log("cleared local storage")
     })
+}
+
+function messageReceiver(e)
+{
+    newProject = e.data;
+    console.log(newProject)
 }

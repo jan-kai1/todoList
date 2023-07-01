@@ -5,7 +5,8 @@ module.exports = {
     entry:
     {
         index:"./src/index.js",
-        addproject:"./src/addproject.js"
+        addproject:"./src/addproject.js",
+        storageUtils: "./src/storageutils.js"
     },
     output:{
         filename: "[name].js",
@@ -16,13 +17,13 @@ module.exports = {
             title:"todolist",
             template:"./src/indextemplate.html",
             filename:"index.html",
-            chunks:['index']
+            chunks:["storageUtils",'index']
         }),
         new HtmlWebpackPlugin({
             title:"addproject",
             template:"./src/addprojecttemplate.html",
             filename:"addproject.html",
-            chunks:['addproject']
+            chunks:["storageUtils",'addproject']
         })
     ],
     devtool:"inline-source-map",
